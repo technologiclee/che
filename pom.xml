@@ -28,6 +28,7 @@
         <module>assembly-platform-api</module>
         <module>assembly-java-codeassistant</module>
         <module>assembly-sdk</module>
+        <module>assembly-sdk-war</module>
         <module>sdk-qa</module>
     </modules>
     <properties>
