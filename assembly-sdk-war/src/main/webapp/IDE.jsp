@@ -52,6 +52,8 @@
 
             "context": "/che",
 
+            "restContext": "/che/api",
+
             "workspaceName": "<%= pageContext.getServletContext().getInitParameter("ws-name") %>",
 
             "workspaceId": "<%= pageContext.getServletContext().getInitParameter("ws-id") %>",
@@ -62,7 +64,7 @@
 
             "hiddenFiles": ".*",
 
-            "javaCodeAssistant": "/java-ca"
+            "javaCodeAssistant": "/che/api"
 
         };
 

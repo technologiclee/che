@@ -47,6 +47,7 @@ import org.eclipse.che.jdt.JavaNavigationService;
 import org.eclipse.che.jdt.JavadocService;
 import org.eclipse.che.jdt.RestNameEnvironment;
 import org.eclipse.che.vfs.impl.fs.LocalFSMountStrategy;
+import org.eclipse.che.vfs.impl.fs.MappedDirectoryLocalFSMountStrategy;
 import org.eclipse.che.vfs.impl.fs.VirtualFileSystemFSModule;
 import org.eclipse.che.ide.ext.java.server.format.FormatService;
 import org.eclipse.che.ide.ext.ssh.server.KeyService;
@@ -63,6 +64,7 @@ import org.eclipse.che.vfs.impl.fs.LocalFileSystemRegistryPlugin;
 import com.google.inject.AbstractModule;
 
 import org.eclipse.che.vfs.impl.fs.WorkspaceHashLocalFSMountStrategy;
+import org.eclipse.che.vfs.impl.fs.WorkspaceToDirectoryMappingService;
 import org.everrest.core.impl.async.AsynchronousJobPool;
 import org.everrest.core.impl.async.AsynchronousJobService;
 import org.everrest.guice.PathKey;
@@ -82,6 +84,9 @@ public class ApiModule extends AbstractModule {
         bind(UserProfileService.class);
 
         bind(LocalFileSystemRegistryPlugin.class);
+
+        bind(LocalFSMountStrategy.class).to(MappedDirectoryLocalFSMountStrategy.class);
+        bind(WorkspaceToDirectoryMappingService.class);
 
         bind(BuilderSelectionStrategy.class).to(LastInUseBuilderSelectionStrategy.class);
         bind(BuilderService.class);
@@ -107,7 +112,6 @@ public class ApiModule extends AbstractModule {
         bind(WSocketEventBusServer.class);
 
         bind(RestNameEnvironment.class);
-        bind(LocalFSMountStrategy.class).to(WorkspaceHashLocalFSMountStrategy.class);
         bind(JavadocService.class);
         bind(JavaNavigationService.class);
         bind(AsynchronousJobPool.class).to(CodenvyAsynchronousJobPool.class);
