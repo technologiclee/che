@@ -16,6 +16,7 @@
 @REM from Codenvy S.A..
 @REM
 @echo off
+set CODENVY_LOCAL_CONF_DIR=%CATALINA_HOME%\conf\
 if "%CODENVY_LOCAL_CONF_DIR%"==""   (
    echo Need to set CODENVY_LOCAL_CONF_DIR
    echo Press enter to exit...
