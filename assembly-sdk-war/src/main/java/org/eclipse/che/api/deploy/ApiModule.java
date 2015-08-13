@@ -25,6 +25,7 @@ import org.eclipse.che.api.core.rest.ApiInfoService;
 import org.eclipse.che.api.core.rest.CoreRestModule;
 import org.eclipse.che.api.factory.FactoryModule;
 import org.eclipse.che.commons.schedule.executor.ScheduleModule;
+import org.eclipse.che.docker.runner.DockerRunnerModule;
 import org.eclipse.che.vfs.impl.fs.LocalVirtualFileSystemRegistry;
 import org.eclipse.che.api.project.server.BaseProjectModule;
 import org.eclipse.che.api.runner.LastInUseRunnerSelectionStrategy;
@@ -117,6 +118,7 @@ public class ApiModule extends AbstractModule {
         install(new AnalyticsModule());
         install(new BaseProjectModule());
         install(new BuilderModule());
+        install(new DockerRunnerModule());
         install(new RunnerModule());
         install(new VirtualFileSystemModule());
         install(new VirtualFileSystemFSModule());
